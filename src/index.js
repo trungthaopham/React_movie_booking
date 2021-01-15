@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter,Router } from 'react-router-dom';
-import { createStore } from 'redux';
+import { BrowserRouter, Router } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { rootReducer} from './redux/reducers/rootReducer'
+import { rootReducer } from './redux/reducers/rootReducer'
+// redux thunk
+import reduxThunk from "redux-thunk";
 import { history } from './Util/History';
 
 
-const store = createStore(rootReducer)
+
+const store = createStore(rootReducer, applyMiddleware(reduxThunk));
 ReactDOM.render(
   <Router history={history}>
     <Provider store={store}>

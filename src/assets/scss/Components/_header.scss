@@ -1,0 +1,30 @@
+.navbar{
+    .navbar-nav{
+        .nav-item{
+            &.active{
+                a{
+                    color: $color-red-0;
+                }
+            }
+            &:hover{
+                a{
+                    color: $color-red-2;
+                }
+                }
+            .nav-link{
+                font-size: $fs-2;
+            }  
+        }
+    }
+}
+.sticky {
+    position: fixed;
+    z-index: 9999;
+    padding: 5px 17.5%;
+    background-color: #fff;
+    color: #000;
+    opacity: 1;
+    transition: all .5s;
+    top: 0;
+    width: 100%;
+  }

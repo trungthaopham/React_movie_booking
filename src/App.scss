@@ -1,0 +1,20 @@
+//Helper
+@import "./assets/scss/Helper/variables";
+@import "./assets/scss/Helper/mixins";
+
+//Base
+@import "./assets/scss/Base/reset";
+
+//Components
+@import "./assets/scss/Components/layout";
+@import "./assets/scss/pages/index";
+@import "./assets/scss/Components/button";
+@import "./assets/scss/Components/header";
+@import "./assets/scss/Components/slider";
+@import "./assets/scss/Components/filmDetail";
+@import "./assets/scss/Components/groupRap";
+@import "./assets/scss/Components/bookingRoom";
+@import "./assets/scss/Components/backapp";
+
+
+//Layouts
