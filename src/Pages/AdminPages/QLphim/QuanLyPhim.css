@@ -1,0 +1,94 @@
+div.ant-spin-container > div.ant-table > div.ant-table-container {
+  border-color: black;
+  border: 0.5px solid #9498ad59;
+}
+
+/* div.ant-table-body > table > tbody > tr */
+.ant-table-cell {
+  padding: 8px;
+  border: 1px solid #9498ad59 !important;
+}
+thead.ant-table-thead > tr > th {
+  color: white;
+  background-color: #002140;
+  text-align: center;
+  border-color: white;
+  border: 1px solid !important;
+}
+td.ant-table-cell {
+  height: 150px !important;
+}
+svg {
+  vertical-align: baseline !important;
+}
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background: #a0e1ff46 !important;
+}
+
+.ant-modal-content.ant-modal-confirm,
+.ant-modal-content.ant-modal-body {
+  padding: 0 !important;
+}
+div.ant-modal-confirm-centered
+  > div.ant-modal-confirm-confirm
+  > div.ant-modal-content
+  > div.ant-modal-body
+  > div.ant-modal-confirm-body-wrapper
+  > div.ant-modal-confirm-body
+  > span {
+  background-color: #002140;
+  color: white;
+  height: 40px;
+  padding-left: 2%;
+  padding-top: 1%;
+}
+div.ant-modal-confirm-centered
+  > div.ant-modal-confirm-confirm
+  > div.ant-modal-content
+  > div.ant-modal-body {
+  padding: 0px;
+}
+div.ant-modal-confirm-centered
+  > div.ant-modal-confirm-confirm
+  > div.ant-modal-content {
+  border-radius: 5px;
+  overflow: hidden;
+}
+div.ant-modal-confirm-centered
+  > div.ant-modal-confirm-confirm
+  > div.ant-modal-content
+  > div.ant-modal-body
+  > div.ant-modal-confirm-body-wrapper
+  > div.ant-modal-confirm-btns
+  > button {
+  width: 75.8px;
+}
+div.ant-modal-confirm-centered
+  > div.ant-modal-confirm-confirm
+  > div.ant-modal-content
+  > div.ant-modal-body
+  > div.ant-modal-confirm-body-wrapper
+  > div.ant-modal-confirm-btns {
+  margin: 0;
+  padding: 20px;
+  /* position: absolute;
+    bottom:0px;
+    right: 0; */
+}
+div.ant-modal-confirm-centered
+  > div.ant-modal-confirm-confirm
+  > div.ant-modal-content
+  > div.ant-modal-body
+  > div.ant-modal-confirm-body-wrapper {
+  position: relative;
+}
+div.ant-modal-confirm-centered
+  > div.ant-modal-confirm-confirm
+  > div.ant-modal-content
+  > div.ant-modal-body
+  > div.ant-modal-confirm-body-wrapper
+  > div.ant-modal-confirm-btns {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
