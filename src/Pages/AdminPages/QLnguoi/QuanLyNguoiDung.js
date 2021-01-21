@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import "./QuanLyNguoiDung.css";
 import ThemSuaNguoiDung from "../QLnguoi/ThemSuaNguoiDung";
 import {
+  GetInforAction,
   layDanhSachNguoiDungApiAction,
   XoaNguoiDungApiAction,
-} from "../../../redux/actions/QuanLyNguoiDungAction";
+} from "../../../redux/actions/UserActions";
 import {
   SuaPhimApiAction,
   ThemPhimApiAction,
-  XoaPhimApiAction,
-} from "../../../redux/actions/QuanLyPhimAction";
+} from "../../../redux/actions/FilmAction";
 import {
   EditOutlined,
   DeleteOutlined,
@@ -21,9 +21,7 @@ import {
 
 export default function QuanLyNguoiDung() {
   /* > > > > > > > > >GỌI API LẤY DANH SÁCH PHIM < < < < < < < < <  */
-  const dsNguoiDung = useSelector(
-    (state) => state.QuanLyNguoiDungReducer.dsNguoiDung
-  );
+  const dsNguoiDung = useSelector((state) => state.UserReducer.listUser);
 
   const dispatch = useDispatch();
   useEffect(async () => {
