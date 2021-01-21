@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import "./QuanLyPhim.css";
 import ThemSuaPhim from "./ThemSuaPhim";
 import {
-  layDanhSachPhimApiAction,
+   
+    layDanhSachPhimApiAction,
+  GetArrayMovieAPI,
   SuaPhimApiAction,
   ThemPhimApiAction,
   XoaPhimApiAction,
-} from "../../../redux/actions/QuanLyPhimAction";
+} from "../../../redux/actions/FilmAction";
 import {
   EditOutlined,
   DeleteOutlined,
@@ -18,7 +20,7 @@ import {
 
 export default function QuanLyPhim() {
   /* > > > > > > > > >GỌI API LẤY DANH SÁCH PHIM < < < < < < < < <  */
-  const dsPhim = useSelector((state) => state.QuanLyPhimReducer.dsPhim);
+  const dsPhim = useSelector((state) => state.FilmReducer.arrFilm);
 
   const dispatch = useDispatch();
   useEffect(async () => {

@@ -1,0 +1,37 @@
+
+.carousel_home_movie{
+    .swiper-wrapper{
+        height: 1000px !important;
+    }
+    .subContent_card{
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    position: unset !important;
+    .swiper-button-prev{
+        top: 50%;
+        left: -5%;
+        color: $color-red-2;
+    }
+    .swiper-button-next{
+        top: 50%;
+        right: -5%;
+        color: $color-red-2;
+
+    }
+}
+.nav-tabs{
+    button{
+        &:focus{
+            outline: none;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .btn-ounline{
+        font-size: 8px!important;
+    }
+}
