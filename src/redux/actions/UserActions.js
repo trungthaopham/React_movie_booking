@@ -52,10 +52,10 @@ export const LogoutAction = async () => {
 export const GetInforAction = async (taiKhoan) => {
     return async (dispatch) => {
         try {
-            let { data, status } = await Axios({
-                url: DOMAIN + "/api/QuanLyNguoiDung/ThongTinTaiKhoan",
-                method: "POST",
-                data: taiKhoan,
+            let { data } = await Axios({
+              url: DOMAIN + "/api/QuanLyNguoiDung/ThongTinTaiKhoan",
+              method: "POST",
+              data: taiKhoan,
             });
             dispatch({
                 type: GET_INFOR_USER,
@@ -112,6 +112,69 @@ export const layDanhSachNguoiDungApiAction = async () => {
     };
   };
   
+
+ //> > > > > > > > > > SỬA_ND_ACTION < < < < < < < <
+ export const SuaNDApiAction = async (nguoiDung) => {
+    return async (dispatch) => {
+      try {
+        const { status } = await Axios({
+          url:
+           
+            "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+          method: "PUT",
+          data: nguoiDung,
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem(ACCESSTOKEN),
+          },
+        });
+        if (status === 200) {
+          dispatch(await layDanhSachNguoiDungApiAction());
+          Modal.success({
+            title: "Cập nhật thành công !",
+            //content: data,
+          });
+        }
+      } catch (err) {
+        console.log("lỗi khi cập nhật: ", err.response);
+        Modal.error({
+          title: "Error " + err.response.status + " : " + err.response.statusText,
+          content: err.response.data,
+        });
+      }
+    };
+  };
+  //---------------------------------------------------
+  
+  //> > > > > > > > > > THÊM_PHIM_ACTION < < < < < < < <
+  export const ThemNDApiAction = async (nguoiDung) => {
+    return async (dispatch) => {
+      try {
+        const {status } = await Axios({
+          url:
+            "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
+          method: "POST",
+          data: nguoiDung,
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem(ACCESSTOKEN),
+          },
+        });
+        if (status === 200) {
+          dispatch(await layDanhSachNguoiDungApiAction());
+          Modal.success({
+            title: "Thêm phim thành công !",
+          });
+        }
+      } catch (err) {
+        console.log("lỗi khi thêm phim: ", err.response);
+        Modal.error({
+          title: "Error " + err.response.status + " : " + err.response.statusText,
+          content: err.response.data,
+        });
+      }
+    };
+  };
+
+
 //> > > > > > > > > > > > > > > > XÓA  NGƯỜI DÙNG_ACTION < < < < < < < < < < < < < <
 export const XoaNguoiDungApiAction = async (taiKhoan) => {
     return async (dispatch) => {

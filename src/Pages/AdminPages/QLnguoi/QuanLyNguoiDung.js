@@ -4,14 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import "./QuanLyNguoiDung.css";
 import ThemSuaNguoiDung from "../QLnguoi/ThemSuaNguoiDung";
 import {
-  GetInforAction,
   layDanhSachNguoiDungApiAction,
   XoaNguoiDungApiAction,
+  SuaNDApiAction,
+  ThemNDApiAction,
 } from "../../../redux/actions/UserActions";
-import {
-  SuaPhimApiAction,
-  ThemPhimApiAction,
-} from "../../../redux/actions/FilmAction";
+
 import {
   EditOutlined,
   DeleteOutlined,
@@ -38,8 +36,8 @@ export default function QuanLyNguoiDung() {
   /* > > > > > > HÀM TRUYỀN VÀO COMPONENT "THEMSUAPHIM" < < < < < < */
   const handleSubmit = async (hDong, nguoiDung) => {
     hDong === "SỬA"
-      ? dispatch(await SuaPhimApiAction(nguoiDung))
-      : dispatch(await ThemPhimApiAction(nguoiDung));
+      ? dispatch(await SuaNDApiAction(nguoiDung))
+      : dispatch(await ThemNDApiAction(nguoiDung));
   };
   /*----------------------------------------------------------------*/
 
@@ -71,9 +69,10 @@ export default function QuanLyNguoiDung() {
     }
     confirm({
       centered: true,
-      width: 800,
+      width: 600,
       title: tenModal,
       icon: null,
+      closable: false,
       content: (
         <ThemSuaNguoiDung
           nguoiDung={ttNguoiDung}
@@ -81,9 +80,9 @@ export default function QuanLyNguoiDung() {
           submit={handleSubmit}
         />
       ),
-      onOk() {
-        console.log("OK");
-      },
+      // onOk() {
+      //   console.log("OK");
+      // },
       onCancel() {
         console.log("Cancel");
       },
@@ -148,7 +147,7 @@ export default function QuanLyNguoiDung() {
               showThemSuaNguoiDungModal("SỬA", record);
             }}
           >
-            <EditOutlined />
+            <EditOutlined /> 
             SỬA
           </Button>
           <Button

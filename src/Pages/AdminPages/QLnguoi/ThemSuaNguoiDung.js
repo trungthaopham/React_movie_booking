@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Input, Button, InputNumber, Select } from "antd";
-//import "./ThemSuaNguoiDung.css";
+import "./ThemSuaNguoiDung.css";
 
 import moment from "moment";
 export default function ThemSuaPhim(props) {
@@ -20,7 +20,7 @@ export default function ThemSuaPhim(props) {
   // > > > > > > KHAI BÁO BIẾN FORM CỦA ANTD <  < < < < < //
   const layout = {
     labelCol: {
-      span: 24,
+      span: 5,
     },
     wrapperCol: {
       span: 24,
@@ -50,27 +50,28 @@ export default function ThemSuaPhim(props) {
           // xử lý dữ liệu nhập vào tử input,
           // nếu có nhập thì cho values = giá trị nhập
           // nếu không nhập thì cho values = giá trị cũ
-          // let dataMoi = values.thongTinPhimMoi;
-          // let dataCu = props.phim;
+          let dataMoi = values.thongTinNguoiDung;
+          let dataCu = props.nguoiDung;
           // dataCu.ngayKhoiChieu = moment(props.phim.ngayKhoiChieu).format(
           //   "DD-MM-YYYY"
           // );
-          // for (let key in dataMoi) {
-          //   if (dataMoi[key] === undefined) {
-          //     dataMoi[key] = dataCu[key];
-          //   }
-          // }
-          // dataMoi.hinhAnh = dataMoi.hinhAnh.file.originFileObj;
-          // dataMoi.hinhAnh = null;
-          // dataMoi = { ...dataMoi, biDanh: "bidanh", maNhom: "GP05" };
-          // console.log("data moi", dataMoi);
+          for (let key in dataMoi) {
+            if (dataMoi[key] === undefined) {
+              dataMoi[key] = dataCu[key];
+            }
+          }
+
+          dataMoi = { ...dataMoi, maNhom: "GP05" };
+          console.log("thông tin cập cũ", dataCu);
+          console.log("thông tin cập nhật", dataMoi);
+
           // console.log("hinh anh", dataMoi.hinhAnh);
           // var form_data = new FormData();
           // for (var key in dataMoi) {
           //   form_data.append(key, dataMoi[key]);
           // }
           // gọi api thêm sửa phim
-          // props.submit(props.hDong, form_data);
+          props.submit(props.hDong, dataMoi);
         }}
       >
         {/* > > > > > > > > > HÀNG 1 : mã phim - ngày khởi chiéu  < < < < < < < < < <  */}
@@ -111,14 +112,14 @@ export default function ThemSuaPhim(props) {
           name={["thongTinNguoiDung", "soDt"]}
           label="Số Điện Thoại"
           //rules={[{ type: "number", min: 0 }]}
-          rules={[
-            {
-              required: true,
-              type: "regexp",
-              pattern: new RegExp("[0-9]"),
-              message: "Wrong format!",
-            },
-          ]}
+          // rules={[
+          //   {
+          //     required: true,
+          //     type: "regexp",
+          //     pattern: new RegExp("[0-9]"),
+          //     message: "Wrong format!",
+          //   },
+          // ]}
         >
           <Input defaultValue={props.nguoiDung.soDt} />
         </Form.Item>

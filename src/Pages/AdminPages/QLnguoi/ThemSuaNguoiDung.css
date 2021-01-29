@@ -19,7 +19,10 @@ div.ant-form-item-control-input
   > div.ant-form-item-control-input-content
   > button {
   width: 75.8px;
-}
+  
+  }
+
+
 div.row > div.col-6 > div.row{
   padding: 0 15px;
 }
