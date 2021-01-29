@@ -3,7 +3,7 @@
         .nav-item{
             &.active{
                 a{
-                    color: $color-red-0;
+                    color: $color-red-0!important;
                 }
             }
             &:hover{
@@ -16,6 +16,14 @@
             }  
         }
     }
+    .navbar-collapse{
+        &.show{
+            background-color: $color-white-cream;
+            z-index: 999 !important;
+            padding: $pd-1;
+        }
+    } 
+    
 }
 .sticky {
     position: fixed;

@@ -10,6 +10,7 @@ import SignInSide from './Components/Login';
 import { UseTemplate } from './Templates/UseTemplate';
 import Register from './Components/Register';
 import FilmDetail from './Components/FilmDetail';
+import Contact from './Components/Contact';
 import Booking from './Components/Booking/Booking';
 import UserInfor from './Components/Users/UserInfor';
 // import ThemSuaPhim from "./Pages/AdminPages/QLphim/ThemSuaPhim";
@@ -30,6 +31,7 @@ function App() {
       />
       <HomeTemplate exact path="/" Component={Home}></HomeTemplate>
       <HomeTemplate exact path="/home" Component={Home}></HomeTemplate>
+      <HomeTemplate exact path="/contact" Component={Contact}></HomeTemplate>
       <HomeTemplate
         exact
         path="/detail/:id"

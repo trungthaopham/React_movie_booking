@@ -112,7 +112,7 @@ function a11yProps(index) {
 export default function FilmDetail(props) {
     const classes = useStyles();
     const filmDetail = useSelector(state => state.FilmReducer.FilmDetail);
-    console.log(filmDetail);
+    // console.log(filmDetail);
     const dispatch = useDispatch();
     useEffect(async () => {
         // lay tham so url
@@ -130,21 +130,19 @@ export default function FilmDetail(props) {
         setValue(newValue);
     };
     // const arrMovieTheater = filmDetail.heThongRapChieu
-    console.log(filmDetail, "chi tiet phim")
+    // console.log(filmDetail, "chi tiet phim")
     return (
         <div className={classes.root} >
             <Container maxWidth="lg">
                 <Paper>
                     <Grid container spacing={3} >
                         <Grid container item xs={5} justify="center">
-
                             <CardMedia className={classes.image}
                                 component="img"
                                 alt="Contemplative Reptile"
                                 height="100%"
                                 image={filmDetail.hinhAnh}
                                 title="Contemplative Reptile"
-
                             />
                         </Grid>
                         <Grid item xs={7} className={classes.boxright}>
@@ -160,6 +158,25 @@ export default function FilmDetail(props) {
                                 {day}
                             </Typography>
                             <a href="#time-to-watch" disabled={filmDetail.maNhom == "GP07" ? "disabled" : ""} className="btn btn-outline-secondary"> Đặt vé</a>
+                            <button type="button" className=" btn btn-outline-primary ml-2" data-toggle="modal" data-target="#trailer">
+                                Xem trailer
+                            </button>
+                            <div className="modal fade" id="trailer" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog modal-xl modal-lg">
+                                    <div className="modal-content">
+                                        <div className="modal-header">
+                                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div className="modal-body">
+                                            <iframe className="w-100" height="600" src={filmDetail.trailer} frameborder="0" allow="" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </Grid>
 
                     </Grid>

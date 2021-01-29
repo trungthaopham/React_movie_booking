@@ -1,4 +1,4 @@
-import { Avatar, Container, CssBaseline, Fab, Grid, makeStyles, Paper, Typography } from '@material-ui/core'
+import { Avatar, Container, CssBaseline, Grid, makeStyles, Typography } from '@material-ui/core'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { GetMovieTheater } from '../redux/actions/FilmAction';
@@ -46,6 +46,11 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.red,
         padding: theme.spacing(6),
     },
+    ul: {
+        listStyle: "none",
+        padding: theme.spacing(3),
+        textAlign: "center"
+    },
 }));
 export default function Footer() {
     const arrMovieTheater = useSelector(state => state.FilmReducer.movieTheater);
@@ -54,7 +59,7 @@ export default function Footer() {
         dispatch(await GetMovieTheater());
     }, []);
 
-    console.log('arr rap=>', arrMovieTheater);
+    // console.log('arr rap=>', arrMovieTheater);
     const classes = useStyles();
     const renderMovieTheater = () => {
         return arrMovieTheater.map((item, key) => {
@@ -71,16 +76,22 @@ export default function Footer() {
                 <Container maxWidth="lg">
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6} md={4}>
-                            <h3>logo</h3>
-                            <div className="company-use">
-                                <ul>
-                                    <li>FAQ</li>
-                                    <li>Brand Guidelines</li>
-                                </ul>
-                                <ul>
-                                    <li>Thỏa thuận sử dụng</li>
-                                    <li>Chính sách bảo mật</li>
-                                </ul>
+                            <h3 className="text-center"><a href="./home"><img src="./image/logo-movie.png" style={{ width: "50px" }}></img></a></h3>
+                            <div className="company-use row">
+                                <div className="col-6">
+                                    <ul className={classes.ul}>
+                                        <li><a>FAQ</a></li>
+                                        <li><a>Brand Guidelines</a></li>
+                                    </ul>
+                                </div>
+                                <div className="col-6">
+                                    <ul className={classes.ul}>
+                                        <li><a>Thỏa thuận sử dụng</a></li>
+                                        <li><a>Chính sách bảo mật</a></li>
+                                    </ul>
+                                </div>
+
+
                             </div>
                         </Grid>
                         <Grid container item xs={12} sm={6} md={4} className={classes.root}>
@@ -89,7 +100,7 @@ export default function Footer() {
                         <Grid container item xs={12} sm={6} md={4} >
                             <Grid item xs={12} sm={6} md={6}>
                                 <Typography variant="h5" className={classes.title}>
-                                    Mobile App
+                                    Ứng dụng điện thoại
                                 </Typography>
 
                                 <Grid container item xs={12} className={classes.root}>
@@ -101,7 +112,7 @@ export default function Footer() {
                             <Grid item xs={12} sm={6} md={6} >
                                 <Grid>
                                     <Typography variant="h5" className={classes.title}>
-                                        Social
+                                        Mạng xã hội
                                     </Typography>
                                     <Grid container item xs={12} className={classes.root}>
                                         <FacebookIcon alt="Facebook" className={classes.small} color='primary' />

@@ -67,7 +67,7 @@ export default function Register() {
 
         let newErrors = { ...registerErrors };
         newErrors[name] = value.trim() === "" ? "Không được bỏ trống" : "";
-        console.log(name, value);
+        // console.log(name, value);
         // Validation types
         if (types === "soDt") {
             const regexNumber = /^[0-9]+$/;
@@ -126,7 +126,7 @@ export default function Register() {
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    Sign up
+                    Đăng ký
                 </Typography>
                 <form className={classes.form} noValidate onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
@@ -138,7 +138,7 @@ export default function Register() {
                                 required
                                 fullWidth
                                 id="fullName"
-                                label="Full Name"
+                                label="Họ và tên"
                                 autoFocus
                                 onChange={handleChange}
                             />
@@ -151,7 +151,7 @@ export default function Register() {
                                 required
                                 fullWidth
                                 id="email"
-                                label="Email Address"
+                                label="Địa chỉ email"
                                 name="email"
                                 autoComplete="email"
                                 onChange={handleChange}
@@ -164,7 +164,7 @@ export default function Register() {
                                 required
                                 fullWidth
                                 id="phone"
-                                label="Phone Number"
+                                label="Số điện thoại"
                                 name="soDt"
                                 autoComplete="Number"
                                 onChange={handleChange}
@@ -179,7 +179,7 @@ export default function Register() {
                                 required
                                 fullWidth
                                 id="userName"
-                                label="User Name"
+                                label="Tài khoản"
                                 onChange={handleChange}
                             />
                             <span className="errorInput">{registerErrors.taiKhoan}</span>
@@ -190,7 +190,7 @@ export default function Register() {
                                 required
                                 fullWidth
                                 name="matKhau"
-                                label="Password"
+                                label="Mật khẩu"
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
@@ -204,7 +204,7 @@ export default function Register() {
                                 required
                                 fullWidth
                                 name="matKhau-confirm"
-                                label="Password Confirm"
+                                label="Xác thực lại mật khẩu"
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
@@ -219,20 +219,18 @@ export default function Register() {
                         color="primary"
                         className={classes.submit}
                     >
-                        Sign Up
+                        Đăng ký
                     </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
-                            <Link href="#" variant="body2">
-                                Already have an account? Sign in
+                            <Link href="./login" variant="body2">
+                                Bạn đã có tài khoản! Đăng nhập
                             </Link>
                         </Grid>
                     </Grid>
                 </form>
             </div>
-            <Box mt={5}>
-                <Copyright />
-            </Box>
+
         </Grid>
     )
 }

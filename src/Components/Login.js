@@ -63,13 +63,13 @@ export default function SignInSide(props) {
     const handleChange = (e) => {
         let { value, name } = e.target;
         let newUserLogin = { ...userLogin, [name]: value };
-        console.log(name, value);
+        // console.log(name, value);
         setUserLogin(newUserLogin);
     };
     // console.log("user login", this.props.state.userLogin)
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(e)
+        // console.log(e)
         dispatch(await LoginAction(userLogin));
     };
 
@@ -82,7 +82,7 @@ export default function SignInSide(props) {
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    Login
+                    Đăng nhập
             </Typography>
                 <form className={classes.form} noValidate onSubmit={handleSubmit}>
                     <TextField
@@ -91,7 +91,7 @@ export default function SignInSide(props) {
                         required
                         fullWidth
                         id="email"
-                        label="User name"
+                        label="Tài khoản:"
                         name="taiKhoan"
                         autoComplete="email"
                         autoFocus
@@ -103,7 +103,7 @@ export default function SignInSide(props) {
                         required
                         fullWidth
                         name="matKhau"
-                        label="Password"
+                        label="Mật khẩu:"
                         type="password"
                         id="password"
                         autoComplete="current-password"
@@ -111,7 +111,7 @@ export default function SignInSide(props) {
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
-                        label="Remember me"
+                        label="Ghi nhớ"
                     />
                     <Button
                         type="submit"
@@ -120,23 +120,21 @@ export default function SignInSide(props) {
                         color="primary"
                         className={classes.submit + " bgprimary"}
                     >
-                        Sign In
+                        Đăng nhập
                     </Button>
                     <Grid container>
                         <Grid item xs>
                             <Link href="#" variant="body2">
-                                Forgot password?
+                                Quên mật khẩu
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link href="#" variant="body2">
-                                {"Don't have an account? Sign Up"}
+                            <Link href="./register" variant="body2">
+                                {"Bạn chưa có tài khoản và muốn đăng ký?"}
                             </Link>
                         </Grid>
                     </Grid>
-                    <Box mt={5}>
-                        <Copyright />
-                    </Box>
+
                 </form>
             </div>
         </Grid>

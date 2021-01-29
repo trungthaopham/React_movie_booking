@@ -79,10 +79,11 @@ export default function Booking(props) {
                     </Grid>
                     <Grid item xs={4}>
                         <div>
+                            Đơn giá:
                             {arrayBooking.reduce((tongTien, gheDangDat, index) => {
-                                return (tongTien += gheDangDat.giaVe);
-                            }, 0)
-                                .toLocaleString()}
+                            return (tongTien += gheDangDat.giaVe);
+                        }, 0)
+                                .toLocaleString() + " Đồng"}
                         </div>
                         <hr />
                         {/* <div className="cinema-rs-img">

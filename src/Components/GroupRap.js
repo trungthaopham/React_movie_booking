@@ -18,9 +18,9 @@ export default function GroupRap(props) {
         dispatch(await GetMovieTheater());
     }, []);
 
-    console.log(showtimes);
+    // console.log(showtimes);
 
-    console.log("danhSachPhim =>", danhSachPhim);
+    // console.log("danhSachPhim =>", danhSachPhim);
 
     const renderHeThongRap = () => {
         return movieTheater.map((rap, index) => {
@@ -66,7 +66,8 @@ export default function GroupRap(props) {
         return danhSachPhim?.slice(0, 8).map((phim, index) => {
             return (
                 <div className="box-movie">
-                    <div key={index} className="movie-info">
+
+                    <div key={index} className="movie-info ">
                         <img
                             src={phim.hinhAnh}
                             alt={phim.hinhAnh}
@@ -84,9 +85,9 @@ export default function GroupRap(props) {
                         </div>
                     </div>
                     <div className="movie-time">
-                        <Typography variant="h5" component="h4" >2D Digital</Typography>
+                        <Typography variant="h6" component="h6" >2D Digital</Typography>
                         <a>
-                            <button className="btn btn-outline-secondary">15:30 ~ 17:30</button>
+                            <button className="btn btn-outline-secondary btn-sm">15:30 ~ 17:30</button>
                         </a>
                     </div>
                 </div>
