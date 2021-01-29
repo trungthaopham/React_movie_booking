@@ -1,0 +1,12 @@
+Phân công công việc:
+    - Phạm Trung Thảo => làm tất cả các trang client use :
+        trang chủ
+        đăng nhập
+        đăng ký
+        chi tiết phim
+        phòng vé
+        booking
+        deploy web
+    - Phan Thành Chí =>  làm tất cả các trang component admin: 
+        thêm, xóa, sửa thông tin phim
+        thêm, xóa, sửa, thành viên
