@@ -16,7 +16,8 @@ thead.ant-table-thead > tr > th {
   border: 1px solid !important;
 }
 td.ant-table-cell {
-  height: 150px !important;
+  height: 80px !important;
+  padding: 8px !important;
 }
 svg {
   vertical-align: baseline !important;
@@ -71,9 +72,9 @@ div.ant-modal-confirm-centered
   > div.ant-modal-confirm-btns {
   margin: 0;
   padding: 20px;
-  /* position: absolute;
+  position: absolute;
     bottom:0px;
-    right: 0; */
+    right: 0px;
 }
 div.ant-modal-confirm-centered
   > div.ant-modal-confirm-confirm
@@ -82,13 +83,4 @@ div.ant-modal-confirm-centered
   > div.ant-modal-confirm-body-wrapper {
   position: relative;
 }
-div.ant-modal-confirm-centered
-  > div.ant-modal-confirm-confirm
-  > div.ant-modal-content
-  > div.ant-modal-body
-  > div.ant-modal-confirm-body-wrapper
-  > div.ant-modal-confirm-btns {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-}
+

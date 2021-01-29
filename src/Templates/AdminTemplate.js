@@ -1,23 +1,59 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Route } from "react-router-dom";
 import "antd/dist/antd.css";
-import { Layout, Menu, Breadcrumb, Space, Button, Avatar } from "antd";
 import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
+  Layout,
+  Menu,
+  Breadcrumb,
+  Space,
+  Button,
+  Avatar,
+  Dropdown,
+  message,
+} from "antd";
+import {
+  HomeOutlined,
   TeamOutlined,
   UserOutlined,
   VideoCameraOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
+
+import { LogoutAction } from "../redux/actions/UserActions";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 export const AdminTemplate = (props) => {
+  // const user = useSelector((state) => state.UserReducer.userLogin);
+  //const user = JSON.parse(localStorage.getItem("USER_LOGIN"));
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.UserReducer.userLogin);
+  console.log("tên dang nhập", user);
   const [state, setState] = useState({
     collapsed: false,
   });
+  const handleMenuClick =async (e) =>{
+    if (e.key === '1') {
+      message.info("Quay về trang chủ ...");
+    } else {
+
+dispatch(await LogoutAction());
+      
+    }
+    console.log("click", e.key);
+  }
+  const menu = (
+    <Menu onClick={handleMenuClick}>
+      <Menu.Item key="1" icon={<HomeOutlined />}>
+        <NavLink to="/home">Trang chủ</NavLink>
+      </Menu.Item>
+      <Menu.Item key="2" icon={<LogoutOutlined />}>
+        <NavLink to="/home">Đăng xuất</NavLink>
+      </Menu.Item>
+    </Menu>
+  );
 
   const onCollapse = (collapsed) => {
     console.log(collapsed);
@@ -54,6 +90,10 @@ export const AdminTemplate = (props) => {
                       ""
                     )}
                   </div>
+                  <Menu.Item key="9" icon={<HomeOutlined />}>
+                    <NavLink to="/home">Trang chủ</NavLink>
+                  </Menu.Item>
+
                   <SubMenu
                     key="sub1"
                     icon={<VideoCameraOutlined />}
@@ -74,15 +114,16 @@ export const AdminTemplate = (props) => {
                     </Menu.Item>
                     <Menu.Item key="8">Thêm người dùng</Menu.Item>
                   </SubMenu>
-                  <Menu.Item key="9" icon={<FileOutlined />}>
-                    Files
-                  </Menu.Item>
                 </Menu>
               </Sider>
               <Layout className="site-layout">
                 <Header
                   className="site-layout-background"
-                  style={{ textAlign: "right" }}
+                  style={{
+                    textAlign: "right",
+                    backgroundColor: "white",
+                    margin: "0 16px",
+                  }}
                 >
                   <Space align="center">
                     <Avatar
@@ -91,20 +132,31 @@ export const AdminTemplate = (props) => {
                       }}
                       icon={<UserOutlined />}
                     />
-                    <span style={{ fontSize: "1.5rem", color: "blue" }}>
-                      Phanthanhchi
-                    </span>
+                    <Dropdown overlay={menu}>
+                      <Button style={{ border: "none" }}>
+                        <span style={{ fontSize: "1.5rem" }}>
+                          {user.taiKhoan}
+                          {/* {console.log("taikhoan", localStorage.getItem("USER_LOGIN")}} */}
+                        </span>
+                      </Button>
+                    </Dropdown>
                   </Space>
                 </Header>
 
                 <Content style={{ margin: "0 16px" }}>
                   <Breadcrumb style={{ margin: "16px 0" }}>
-                    <Breadcrumb.Item>User</Breadcrumb.Item>
-                    <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                    <Breadcrumb.Item>Admin</Breadcrumb.Item>
+                    <Breadcrumb.Item>
+                      <NavLink to="/admin/quanlyphim">{props.to}</NavLink>
+                    </Breadcrumb.Item>
                   </Breadcrumb>
                   <div
                     className="site-layout-background"
-                    style={{ padding: 24, minHeight: 360 }}
+                    style={{
+                      padding: 24,
+                      minHeight: 360,
+                      backgroundColor: "white",
+                    }}
                   >
                     <Component {...propsRoute} />
                   </div>
